@@ -55,3 +55,17 @@ insert into employee6 values(1, 'Parth', 'Deshmukh',21);-- no duplicate entry be
 insert into employee6 values(2, 'Ram', 'Deshmukh',21);
 
 select * from employee6;
+
+-- allow check constraint in multiple column in same row 
+create table employee7 (EmpID int Primary key, FirstName varchar(10), LastName varchar(10), EmpAge int, Salary int);
+insert into employee7 values(1, 'Parth', 'Deshmukh',21,5000);
+alter table employee7 drop check chk_EmpAge_salary;
+alter table employee7 add constraint chk_EmpAge_salary
+check(EmpAge>20 AND salary >= 5000);
+alter table employee7 drop check chk_EmpAge_salary;
+
+
+
+
+-- Default Constraint: set a deafult value for a column if no other value specified
+create table employee4(EmpID int Not null , FirstName varchar(10), LastName varchar(10), EmpDept varchar(10), Default 'Operations');
