@@ -46,5 +46,12 @@ alter table employee3 drop check employee3_chk_2;
 
 -- check if salary column constraint is drop using inert
 insert into employee3 values(6, 'Kirti', 'Deshmukh',21, 1000);
+show create table employee3;
 
+create table employee6 (EmpID int not null, FirstName varchar(10), LastName varchar(10), EmpAge int, check(EmpAge>20), primary key(EmpID));
 
+insert into employee6 values(1, 'Parth', 'Deshmukh',21);
+insert into employee6 values(1, 'Parth', 'Deshmukh',21);-- no duplicate entry beacuse of id is same 
+insert into employee6 values(2, 'Ram', 'Deshmukh',21);
+
+select * from employee6;
