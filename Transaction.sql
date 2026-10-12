@@ -36,4 +36,24 @@ Update orders set customer_name='PD' where order_id=102;
 Rollback;
 select * from orders;
 
+-- Step 1: Insert a few orders
+insert into orders values(103, 'HD', 'Pending');
+insert into orders values(104, 'AD', 'Pending');
+savepoint sp1;
+select * from orders;
+
+-- Step 2: Update one order
+update orders set status = 'Shipped ' where order_id=103;
+savepoint sp2;
+rollback to savepoint sp1;
+
+-- Step 3 : Delete another orders
+Delete from orders where order_id=102;
+savepoint sp3;
+
+-- We want to update the delete but keep the update 
+Rollback to savepoint sp2;
+select * from orders;
+
+
 
