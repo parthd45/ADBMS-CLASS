@@ -68,4 +68,43 @@ alter table employee7 drop check chk_EmpAge_salary;
 
 
 -- Default Constraint: set a deafult value for a column if no other value specified
-create table employee4(EmpID int Not null , FirstName varchar(10), LastName varchar(10), EmpDept varchar(10), Default 'Operations');
+
+create table employee4(EmpID int Not null , FirstName varchar(10), LastName varchar(10), EmpDept varchar(10) Default 'Operations');
+insert into employee4 values(1, 'A', 'B','MCA');
+Desc employee4;
+insert into employee4(EmpID,FirstName,LastName)
+values(1, 'Ravi', 'Deshmukh');
+insert into employee4(EmpID,FirstName,LastName)
+values(2, 'Ravi', 'Giri');
+
+select * from employee4;
+insert into employee4 values(3, 'Parth', 'Rauth');-- this query wwill not excuted
+
+-- INDEX IN MY SQL 
+create index demoindex on employee4(FirstName);
+show indexes from employee4;
+
+create index demoindex2 on employee4(FirstName,LastName);
+show indexes from employee4;
+
+
+-- for droping index
+drop index demoindex on employee4;
+drop index demoindex2 on employee4;
+
+
+-- Auto Increment 
+create table persons(
+Personid int not null AUTO_INCREMENT,
+LastName varchar(10),
+FirstName varchar(10),
+Age int,
+Primary Key(Personid)
+);
+
+Desc persons;
+
+ insert into persons(FirstName, LastName, Age)
+ values('Parth', 'Deshmukh', 21),('Harsh','Damodhar',22);
+  
+  select * from persons;
