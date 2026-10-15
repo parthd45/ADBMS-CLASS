@@ -55,3 +55,17 @@ select concat(custname,' ',lastname) as FullName from customer;/* save in buffer
 
 -- Use of substr and instr functions
 select substr(custname,1,3)from customer;
+select substr(custname,1,0)from customer;
+select substr(custname,0,1)from customer;
+select substr(custname,1,1)from customer;
+/* intstring query*/
+
+select instr(custname,'a') as position from customer;/* INSRT to see position of letter in that row*/
+
+insert into customer values(4,'Gayatri','Mumbai','Tablet',20000,'Pathak');
+
+select substr(custname,1,2) as SUBSTR,
+instr(custname,'t') as INSTR from customer; /* both substr and instr in ones*/
+
+
+
