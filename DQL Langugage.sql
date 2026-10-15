@@ -68,4 +68,8 @@ select substr(custname,1,2) as SUBSTR,
 instr(custname,'t') as INSTR from customer; /* both substr and instr in ones*/
 
 
+select substr(custname,1,2) as SUBSTR,
+instr(custname,'t') as INSTR from customer where Custid<3;
+
+
 
