@@ -37,3 +37,21 @@ select * from customer order by price desc;
 /* sorting data by multiple column*/
 select * from customer order by price,city;/* first prefrence data will sort*/
 select * from customer order by city desc,price asc;
+
+/* single-row function*/
+/* Case Conversion Function */
+
+select upper(custname), lower(product) from customer where Custid<3;/* uppercase & lower case function*/
+select upper(custname), lower(product) from customer;/* to apply all record*/
+
+alter table customer add column lastname varchar(10);
+update customer set lastname='Deshmukh' where Custid=1;
+update customer set lastname='Sharma' where Custid=2;
+update customer set lastname='Deshmukh' where Custid=3;
+
+/* concat two column*/
+select concat(custname,' ',lastname) as FullName from customer;/* save in buffer memory */
+-- to make it permanent change 
+
+-- Use of substr and instr functions
+select substr(custname,1,3)from customer;
