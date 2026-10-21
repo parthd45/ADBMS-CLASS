@@ -101,11 +101,26 @@ select * from employee where last_name like 'p%';
  evaluted by the having clause, and if the result is true , the row is included in the result set*/
  /* the having clause was added to sql beacuse the where keyword cannnot be used with aggregate fuction*/
  
+ -- Dept wise
  select * from employee;
  select Dept,sum(Exprience)as total_experience
  from employee group by Dept
  having total_experience>=10 and total_experience<=20;
  
+ -- Role wise
  select role,sum(Exprience)as total_experience
  from employee group by role
  having total_experience>=10 and total_experience<=20;
+ 
+ /* fetch department wise employee count using 
+ having clause and sort the data*/
+ select Dept,count(Emp_id)
+ from employee group by Dept
+ having count(Emp_id)>2
+ order by count(Emp_id);
+ 
+ 
+ select * from employee;
+ 
+ select Dept,Sum(Exprience) as total_experience from employee group by Dept
+ having total_experience >=10 or total_experience <=20;
