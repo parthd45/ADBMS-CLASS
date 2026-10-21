@@ -70,3 +70,12 @@ select * from employee where last_name like 'p%';
  ;
  select * from employee where manager_id is null;
  select * from employee where Dept is null;
+ 
+ /*Aggregate function/
+ /*Count , Sum, Avg, Min, Max*/
+ select count(*) from employee;
+ select count(Emp_id) from employee where dept='Finance';/*Count*/
+ select count(Emp_id) from employee where role='Retail';/*Count*/
+ select Min(Exprience) from employee;/*Min*/
+ select Max(Exprience) from employee ;/*Max*/
+ select Avg(Exprience)as emp_exr from employee ;/*Sum*/
