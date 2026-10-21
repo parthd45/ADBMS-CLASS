@@ -79,3 +79,33 @@ select * from employee where last_name like 'p%';
  select Min(Exprience) from employee;/*Min*/
  select Max(Exprience) from employee ;/*Max*/
  select Avg(Exprience)as emp_exr from employee ;/*Sum*/
+ 
+ 
+ /*Group By Clause:- group by cluase a set of rows into subgroups depennding onclummn or expression values.
+ The group by clause is used with aggreget function such as sum,avg,max,min, and count*/
+ 
+ -- Find the Dept wise employee count
+ select Dept,count(*)as employee_count
+ from employee group by Dept;
+ 
+ -- find role count
+ select role,count(*)as employee_count
+ from employee group by role;
+ 
+ -- find gender count
+ select Gender,count(*)as employee_count
+ from employee group by Gender;
+ 
+ 
+ /* Having Clause:- each group produced by the group by clause is 
+ evaluted by the having clause, and if the result is true , the row is included in the result set*/
+ /* the having clause was added to sql beacuse the where keyword cannnot be used with aggregate fuction*/
+ 
+ select * from employee;
+ select Dept,sum(Exprience)as total_experience
+ from employee group by Dept
+ having total_experience>=10 and total_experience<=20;
+ 
+ select role,sum(Exprience)as total_experience
+ from employee group by role
+ having total_experience>=10 and total_experience<=20;
