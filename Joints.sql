@@ -68,3 +68,16 @@ union
 select * from employee
 right join project
 on employee.employee_id=project.employee_id;
+
+/* display employee name who has not assigned any project*/
+select employee.ename,project.pname
+from employee
+left join project
+on employee.employee_id=project.employee_id
+where project.employee_id is Not Null;
+
+select employee.ename,project.pname
+from employee
+left join project
+on employee.employee_id=project.employee_id
+where project.employee_id is Null;
